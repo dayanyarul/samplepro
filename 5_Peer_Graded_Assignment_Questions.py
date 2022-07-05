@@ -71,7 +71,7 @@ def compute_data_choice_2(df):
 
 
 # Application layout
-app.layout = html.Div(children=[ [html.H1('US Domestic Airline Flights Performance', 
+app.layout = html.Div(children=[html.H1('US Domestic Airline Flights Performance', 
                                 style={'textAlign': 'center', 'color': '#503D36',
                                 'font-size': 24}),
                                 # TASK1: Add title to the dashboard
@@ -132,7 +132,7 @@ app.layout = html.Div(children=[ [html.H1('US Domestic Airline Flights Performan
                                html.Div([
                                    html.Div([ ], id = 'plot4'),
                                    html.Div([ ], id = 'plot5')
-                               ], style={'display' : 'flex}'})
+                               ], style={'display' : 'flex'})])
                                 ]
 
 # Callback function definition
@@ -165,7 +165,7 @@ def get_graph(chart, year, children1, children2, children3, children4, children5
             
             # TASK5: Average flight time by reporting airline
             # Enter your code below. Make sure you have correct formatting.
-            line_fig = px.line(line_data, x= 'Month', y='Airtime', color ='Reporting_Airline', title = 'Average monthly flight time (minutes) by airline' )
+            line_fig = px.line(line_data, x= 'Month', y='AirTime', color ='Reporting_Airline', title = 'Average monthly flight time (minutes) by airline')
             
             # Percentage of diverted airport landings per reporting airline
             pie_fig = px.pie(div_data, values='Flights', names='Reporting_Airline', title='% of flights by reporting airline')
@@ -185,10 +185,10 @@ def get_graph(chart, year, children1, children2, children3, children4, children5
             # TASK6: Number of flights flying to each state from each reporting airline
             # Enter your code below. Make sure you have correct formatting.
             tree_fig = px.treemap(tree_data,path=['DestState','Reporting_Airline'],
-                                values= 'Flights'
-                                color= 'Flights'
+                                values= 'Flights',
+                                color= 'Flights',
                                 color_continuous_scale= 'RdBu',
-                                title= 'Flight count by airline to destination state' )
+                                title= 'Flight count by airline to destination state')
             
             
             # REVIEW6: Return dcc.Graph component to the empty division
